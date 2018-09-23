@@ -429,7 +429,7 @@
                                   </p>
                               </li>
                           </ul>
-                          <div class="form-container">
+                          <div class="form-container" id="contact-form">
                             <form method="post" action="contact.php">
                               <div class="col-md-6">
                                 <label>Name:</label>
