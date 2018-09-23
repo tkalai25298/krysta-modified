@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<?php
+if($_POST["submit"]) {
+    $recipient="tkalai25298@gmail.com";
+    $subject="Form to email message";
+    $sender=$_POST["sender"];
+    $senderEmail=$_POST["senderEmail"];
+    $message=$_POST["message"];
+
+    $mailBody="Name: $sender\nEmail: $senderEmail\n\n$message";
+
+    mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
+
+    $thankYou="<p>Thank you! Your message has been sent.</p>";
+    header("location:index.php");
+}
+?>
 <head>
         <meta charset="utf-8">
         <title>Krysta : Home</title>
@@ -430,7 +446,7 @@
                               </li>
                           </ul>
                           <div class="form-container" id="contact-form">
-                            <form method="post" action="contact.php">
+                            <form method="post" enctype="multipart/form-data">
                               <div class="col-md-6">
                                 <label>Name:</label>
                                 <input name="sender" class="form-control" required>
